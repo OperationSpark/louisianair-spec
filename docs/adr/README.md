@@ -1,15 +1,16 @@
 # Architecture Decision Records
 
-This directory contains Architecture Decision Records (ADRs) for the mqttsensor project.
+This directory contains Architecture Decision Records (ADRs) for the project.
 
 ## Index
 
-| ADR | Title | Status |
-|-----|-------|--------|
-| [ADR-0001](0001-platform-pico-w.md) | Platform Selection - Raspberry Pi Pico W | Accepted |
-| [ADR-0002](0002-language-tinygo.md) | Programming Language - TinyGo | Accepted |
-| [ADR-0003](0003-network-stack-lneto.md) | Network Stack - lneto | Accepted |
-| [ADR-0004](0004-protocol-mqtt.md) | Communication Protocol - MQTT | Accepted |
+| ADR                                     | Title                                    | Status   |
+| --------------------------------------- | ---------------------------------------- | -------- |
+| [ADR-0001](0001-platform-pico-w.md)     | Platform Selection - Raspberry Pi Pico W | Accepted |
+| [ADR-0002](0002-language-tinygo.md)     | Programming Language - TinyGo            | Accepted |
+| [ADR-0003](0003-network-stack-lneto.md) | Network Stack - lneto                    | Accepted |
+| [ADR-0004](0004-protocol-mqtt.md)       | Communication Protocol - MQTT            | Accepted |
+| [ADR-0005](0005-mqtt-topic-structure.md) | MQTT Topic Structure for Aethernet Devices | Accepted |
 
 ## About ADRs
 
