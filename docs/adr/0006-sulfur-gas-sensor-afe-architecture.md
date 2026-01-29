@@ -131,20 +131,6 @@ Rationale:
 - Relative humidity is required to interpret sulfur sensor artifacts
 - DHT-11-class sensors are insufficient for outdoor air quality monitoring
 
-## Alternatives Considered
-
-### Metal-oxide (MOX) sensors (MQ-x class)
-
-Rejected. Used as a low-cost prototype exploration path, but MOX sensors have poor selectivity in mixed gases, require elevated operating temperatures with heater power, and exhibit strong temperature/humidity dependence that can drive response drift. These trade-offs conflict with stability and power goals for outdoor monitoring.
-
-### Electrochemical VOC sensors (combo VOC + sulfur)
-
-Rejected. VOC sensors were considered for broader atmospheric context, but combining VOC outputs with sulfur targets adds calibration and interpretation complexity beyond the current project scope.
-
-### SGX Sensortech EC4 H2S/SO2 sensors
-
-Rejected. The EC4 H2S and SO2 variants target ppm-scale ranges and resolution (e.g., 0-1000 ppm with 1 ppm resolution for H2S; 0-2000 ppm with 5 ppm resolution for SO2), which does not align with ppb-level targets for environmental monitoring.
-
 ## Consequences
 
 ### Positive
@@ -162,3 +148,17 @@ Rejected. The EC4 H2S and SO2 variants target ppm-scale ranges and resolution (e
 - Redundant NO2 sensors across AFEs
 
 This architecture prioritizes data quality, interpretability, and long-term stability while remaining within a realistic per-node cost target. It is intended as a robust baseline for v1 deployments and future network expansion.
+
+## Alternatives Considered
+
+### Metal-oxide (MOX) sensors (MQ-x class)
+
+Rejected. Used as a low-cost prototype exploration path, but MOX sensors have poor selectivity in mixed gases, require elevated operating temperatures with heater power, and exhibit strong temperature/humidity dependence that can drive response drift. These trade-offs conflict with stability and power goals for outdoor monitoring.
+
+### Electrochemical VOC sensors (combo VOC + sulfur)
+
+Rejected. VOC sensors were considered for broader atmospheric context, but combining VOC outputs with sulfur targets adds calibration and interpretation complexity beyond the current project scope.
+
+### SGX Sensortech EC4 H2S/SO2 sensors
+
+Rejected. The EC4 H2S and SO2 variants target ppm-scale ranges and resolution (e.g., 0-1000 ppm with 1 ppm resolution for H2S; 0-2000 ppm with 5 ppm resolution for SO2), which does not align with ppb-level targets for environmental monitoring.
