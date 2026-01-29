@@ -15,7 +15,10 @@ Over-arching documentation, decisions, and shared specs (including schema where 
 - Cross-repo standards (data formats, API contracts, shared schema)
 - Program timelines, risks, and organizational context
 
-## Related repos (TODO links)
+## Related repos
 
-- Data collection + analytics + visualization web app and API
-- Sensor system firmware (device + edge bridge)
+- https://github.com/OperationSpark/aethernet
+  - API server, database, and dashboard code
+  - MQTT broker setup and configuration
+- https://github.com/OperationSpark/aethernet-firmware
+  - Monitor device firmware
