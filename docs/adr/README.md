@@ -11,6 +11,7 @@ This directory contains Architecture Decision Records (ADRs) for the project.
 | [ADR-0003](0003-network-stack-lneto.md) | Network Stack - lneto                    | Accepted |
 | [ADR-0004](0004-protocol-mqtt.md)       | Communication Protocol - MQTT            | Accepted |
 | [ADR-0005](0005-mqtt-topic-structure.md) | MQTT Topic Structure for Aethernet Devices | Accepted |
+| [ADR-0006](0006-sulfur-gas-sensor-afe-architecture.md) | Sulfur Gas Sensor and AFE Architecture | Proposed |
 
 ## About ADRs
 
