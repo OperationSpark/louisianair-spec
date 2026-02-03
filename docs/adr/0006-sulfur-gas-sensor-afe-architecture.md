@@ -99,7 +99,10 @@ Primary choice:
 
 Rationale:
 
-- 24-bit delta-sigma ADC suitable for low-frequency, low-level signals
+- Low-SPS, long-interval sampling lets averaging suppress random noise (e.g., 20 SPS over 30 s = 600 samples, ~24.5x noise reduction)
+- In this regime, effective resolution is dominated by input-referred noise and stability, not headline "bits"
+- A well-specified 16-bit delta-sigma ADC can be sufficient at 1/minute if its low-SPS RMS noise is low enough for the target ppb slope
+- Choose a device that publishes noise vs SPS / filter settings and pair it with a low-noise reference and quiet layout/power
 - Supports differential inputs (required for Pt1000)
 - SPI is robust and well-supported in TinyGo
 - RP2040 internal ADC lacks sufficient channel count and effective resolution
