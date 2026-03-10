@@ -26,7 +26,9 @@ ADC constraints:
 
 - High resolution and low noise for small signal changes (ppb to low-ppm)
 - Low sample rate is acceptable; prioritize stability over speed
-- At least 6 usable channels (WE/AE x2 + Pt1000 differential + spare)
+- For production, the ideal target is at least 6 usable channels (WE/AE x2 + Pt1000 differential + spare)
+- For near-term prototyping, breakout-board availability is a hard constraint
+- The prototype may temporarily instrument only a subset of the ideal AFE signals
 - SPI preferred for deterministic behavior and clearer failure modes than I2C
 - TinyGo support or straightforward driver effort
 
@@ -95,23 +97,27 @@ Use an **external SPI delta-sigma ADC**.
 
 Primary choice:
 
-- **MCP3564** (one ADC per AFE)
+- **ADS1220** (one ADC per AFE for initial prototyping)
 
 Rationale:
 
 - Low-SPS, long-interval sampling lets averaging suppress random noise (e.g., 20 SPS over 30 s = 600 samples, ~24.5x noise reduction)
 - In this regime, effective resolution is dominated by input-referred noise and stability, not headline "bits"
-- A well-specified 16-bit delta-sigma ADC can be sufficient at 1/minute if its low-SPS RMS noise is low enough for the target ppb slope
-- Choose a device that publishes noise vs SPS / filter settings and pair it with a low-noise reference and quiet layout/power
-- Supports differential inputs (required for Pt1000)
+- ADS1220 is a low-noise, 24-bit delta-sigma ADC with SPI, PGA, and a mux that supports either four single-ended inputs or two differential pairs
+- MCP3564 was initially selected because it better matched the ideal channel-count target, and a breakout board could be found early in evaluation
+- That path turned out to be less practical than expected because additional MCP3564 breakout boards were not readily obtainable
+- Readily available ADS1220 breakout boards make bench prototyping materially easier than the previously selected MCP3564 path
+- The most available alternative breakout boards found during selection were either single-ended only or too low resolution for this use
+- For prototype work, breakout availability is more important than preserving the ideal channel count on day one
 - SPI is robust and well-supported in TinyGo
 - RP2040 internal ADC lacks sufficient channel count and effective resolution
 
-Each MCP3564 services one AFE:
+Each ADS1220 services one AFE prototype path:
 
-- OP1-OP4 (WE/AE x2 sensors)
-- Pt1000+ / Pt1000-
-- Spare channels for future expansion
+- One differential pair is used for the selected gas-sensor channel on that AFE
+- The second differential pair is used for the AFE Pt1000 measurement
+- This leaves the other gas-sensor channel on that AFE uninstrumented in the initial prototype
+- A later revision may add another ADC to recover the deferred gas-sensor channel
 
 ### Interconnect
 
@@ -141,14 +147,17 @@ Rationale:
 - Meets accuracy and stability goals within cost constraints
 - Architecture scales cleanly from 1 to 2 AFEs
 - Provides necessary atmospheric context (NO2, RH, temperature)
-- Avoids low-quality ADC and 5 V logic pitfalls
+- Uses a low-noise ADC available on readily obtainable breakout boards, reducing prototype friction
 - Deterministic firmware behavior with SPI-based ADCs
 
 ### Negative
 
 - Higher BOM cost than MQ/MOX-based designs
-- Increased analog channel count and SPI device management
+- ADC channel count is tighter than the original ideal
+- Initial prototype cannot instrument every gas-sensor channel from each AFE at once
+- Recovering the deferred gas-sensor channel likely requires an additional ADC in a later revision
 - Redundant NO2 sensors across AFEs
+- Requires a new TinyGo ADS1220 driver
 
 This architecture prioritizes data quality, interpretability, and long-term stability while remaining within a realistic per-node cost target. It is intended as a robust baseline for v1 deployments and future network expansion.
 
@@ -165,3 +174,7 @@ Rejected. VOC sensors were considered for broader atmospheric context, but combi
 ### SGX Sensortech EC4 H2S/SO2 sensors
 
 Rejected. The EC4 H2S and SO2 variants target ppm-scale ranges and resolution (e.g., 0-1000 ppm with 1 ppm resolution for H2S; 0-2000 ppm with 5 ppm resolution for SO2), which does not align with ppb-level targets for environmental monitoring.
+
+### MCP3564 as prototype ADC
+
+Rejected for the current prototype iteration. MCP3564 remained attractive on technical grounds because its channel count better fits the full AFE signal set, but breakout-board availability was worse than expected in practice. One board could be sourced during evaluation, but additional boards were not readily available, which made it a weak choice for a repeatable prototype path.
