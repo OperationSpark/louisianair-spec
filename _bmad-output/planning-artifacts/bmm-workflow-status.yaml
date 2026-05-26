@@ -3,7 +3,7 @@
 # Phase 4 (Implementation) is tracked separately in sprint-status.yaml
 
 # generated: 2025-11-03
-# project: aethernet
+# project: louisianair
 # project_type: software
 # project_level: 3
 # field_type: greenfield
@@ -22,7 +22,7 @@
 #   - skipped: Optional/conditional workflow that was skipped
 
 generated: "2025-11-03"
-project: "aethernet"
+project: "louisianair"
 project_type: "software"
 project_level: "3"
 field_type: "greenfield"

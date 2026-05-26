@@ -6,7 +6,7 @@
 
 ## Executive Summary
 
-**Topic:** Designing the Aethernet sensor-to-cloud data pipeline
+**Topic:** Designing the Louisianair sensor-to-cloud data pipeline
 
 **Session Goals:** Identify feasible technical pathways to convert raw sensor readings into calibrated concentration values, buffer them locally, and deliver reliable batches to the cloud API despite limited embedded-hardware experience.
 

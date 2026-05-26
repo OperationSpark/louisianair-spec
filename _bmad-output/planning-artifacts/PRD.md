@@ -1,4 +1,4 @@
-# aethernet - Product Requirements Document
+# louisianair - Product Requirements Document
 
 **Author:** OpSpark
 **Date:** 2025-11-05
@@ -8,9 +8,9 @@
 
 ## Executive Summary
 
-Aethernet empowers fenceline communities to assemble low-cost air monitors, stream trusted readings into a shared open database, and interpret local air trends through accessible dashboards while apprentices and youth build real-world IoT and software skills that strengthen environmental justice capacity.
+Louisianair empowers fenceline communities to assemble low-cost air monitors, stream trusted readings into a shared open database, and interpret local air trends through accessible dashboards while apprentices and youth build real-world IoT and software skills that strengthen environmental justice capacity.
 
-This open-source initiative combines DIY sensor hardware (Raspberry Pi + Arduino + industrial gas sensors), a cloud-backed data API, and community-friendly dashboards to make air quality monitoring accessible to New Orleans neighborhoods most impacted by pollution. By pairing technical infrastructure with workforce development, Aethernet transforms environmental monitoring into a platform for civic action and youth opportunity.
+This open-source initiative combines DIY sensor hardware (Raspberry Pi + Arduino + industrial gas sensors), a cloud-backed data API, and community-friendly dashboards to make air quality monitoring accessible to New Orleans neighborhoods most impacted by pollution. By pairing technical infrastructure with workforce development, Louisianair transforms environmental monitoring into a platform for civic action and youth opportunity.
 
 ### What Makes This Special
 
@@ -39,7 +39,7 @@ This isn't just another air quality API - it's a community empowerment platform 
 
 ### Domain Context
 
-While Aethernet is not seeking EPA certification for the MVP pilot, the system is designed with awareness of Louisiana's regulatory landscape:
+While Louisianair is not seeking EPA certification for the MVP pilot, the system is designed with awareness of Louisiana's regulatory landscape:
 
 - **Louisiana Community Air Monitoring Reliability Act (SB 503):** Restricts enforcement to EPA-certified methods, but communities still need affordable tools for monitoring, education, and organizing around local conditions.
 - **Compliance-Ready Design:** Data outputs include sensor certification status, QA/QC metadata, and legal usage disclaimers to support transparency requirements.
@@ -52,7 +52,7 @@ The domain requires thoughtful handling of data trust, sensor transparency, and 
 
 ## Success Criteria
 
-Aethernet's pilot succeeds when it simultaneously empowers community partners with actionable data, produces reusable open tooling, and delivers measurable workforce development outcomes.
+Louisianair's pilot succeeds when it simultaneously empowers community partners with actionable data, produces reusable open tooling, and delivers measurable workforce development outcomes.
 
 ### Community Empowerment Success
 
@@ -78,7 +78,7 @@ Aethernet's pilot succeeds when it simultaneously empowers community partners wi
 
 ### Open Source Replication Success
 
-**Core Measure:** External partners can independently replicate or extend the Aethernet network without Operation Spark involvement.
+**Core Measure:** External partners can independently replicate or extend the Louisianair network without Operation Spark involvement.
 
 **Specific Indicators:**
 
@@ -213,7 +213,7 @@ Aethernet's pilot succeeds when it simultaneously empowers community partners wi
 
 - International deployment guides: adapt for different regulatory contexts (EU, Latin America, Asia)
 - Translated interfaces and documentation for non-English speaking communities
-- Franchise model: city/region-specific Aethernet instances with shared codebase
+- Franchise model: city/region-specific Louisianair instances with shared codebase
 
 **Hardware Innovation:**
 
@@ -867,7 +867,7 @@ Critical dependencies between functional requirements inform implementation sequ
 
 ### FR-7: Open Source Documentation & Replication
 
-**Capability:** External partners can independently replicate Aethernet deployments.
+**Capability:** External partners can independently replicate Louisianair deployments.
 
 **Dependencies:** FR-7.1 requires validated FR-1 (sensor assembly); FR-7.2 requires functional FR-3 (API endpoints); FR-7.3 requires deployed FR-2 and FR-3 (cloud infrastructure).
 
@@ -890,7 +890,7 @@ Critical dependencies between functional requirements inform implementation sequ
 
 - Cloud hosting setup (Fly.io or AWS), database initialization, API deployment
 - Environment configuration, secrets management, monitoring setup
-- **Acceptance:** DevOps engineer deploys complete Aethernet instance in new region using guide
+- **Acceptance:** DevOps engineer deploys complete Louisianair instance in new region using guide
 
 **FR-7.4 API Reference Documentation**
 **Phase:** MVP
@@ -1156,7 +1156,7 @@ Critical dependencies between functional requirements inform implementation sequ
 
 **Product Foundation:**
 
-- Product Brief: `docs/product-brief-aethernet-2025-11-03.md`
+- Product Brief: `docs/product-brief-louisianair-2025-11-03.md`
 - Brainstorming Session: `docs/bmm-brainstorming-session-2025-11-04.md`
 - Technical Research: `docs/research-technical-2025-11-04.md` (Section 1: Requirements)
 
@@ -1279,7 +1279,7 @@ This PRD must be decomposed into implementable epics and bite-sized stories (200
 An open-source air quality monitoring platform that empowers New Orleans fenceline communities with DIY sensors, shared data infrastructure, and accessible dashboards while Operation Spark apprentices and students build production-ready IoT and software skills.
 
 **Why It Matters:**
-Aethernet democratizes air quality insights for environmental justice through open data, accessible technology, and youth-powered community capacity building. It transforms pollution monitoring into workforce development and civic action.
+Louisianair democratizes air quality insights for environmental justice through open data, accessible technology, and youth-powered community capacity building. It transforms pollution monitoring into workforce development and civic action.
 
 **Key Success Metrics:**
 
@@ -1297,7 +1297,7 @@ The magic happens when fenceline residents understand their air quality in real-
 
 ---
 
-_This PRD captures the complete vision, requirements, and success criteria for Aethernet._
+_This PRD captures the complete vision, requirements, and success criteria for Louisianair._
 
 _Created through collaborative discovery between OpSpark and PM facilitator John._
 

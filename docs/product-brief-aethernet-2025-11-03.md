@@ -1,4 +1,4 @@
-# Product Brief: Aethernet
+# Product Brief: Louisianair
 
 - **Date:** 2025-11-03
 - **Author:** [Operation Spark](https://www.operationspark.org/) / [shift7](https://shift7.com/)
@@ -8,7 +8,7 @@
 
 ## Executive Summary
 
-Aethernet empowers fenceline communities to assemble low-cost air monitors, stream trusted readings into a shared open database, and interpret local air trends through accessible dashboards while apprentices and youth build real-world IoT and software skills that strengthen environmental justice capacity.
+Louisianair empowers fenceline communities to assemble low-cost air monitors, stream trusted readings into a shared open database, and interpret local air trends through accessible dashboards while apprentices and youth build real-world IoT and software skills that strengthen environmental justice capacity.
 
 ## Initial Vision
 
@@ -52,7 +52,7 @@ Community-based organizations, K‑12 and university programs, and grassroots re
 
 ## Success Metrics
 
-Aethernet’s pilot is considered successful when it simultaneously empowers community partners with actionable data, produces reusable open tooling, and delivers measurable workforce development outcomes.
+Louisianair’s pilot is considered successful when it simultaneously empowers community partners with actionable data, produces reusable open tooling, and delivers measurable workforce development outcomes.
 
 ### Business Objectives
 
@@ -138,7 +138,7 @@ Aethernet’s pilot is considered successful when it simultaneously empowers com
 
 ---
 
-_This Product Brief captures the vision and requirements for aethernet._
+_This Product Brief captures the vision and requirements for louisianair._
 
 _It was created through collaborative discovery and reflects the unique needs of this TBD project._
 

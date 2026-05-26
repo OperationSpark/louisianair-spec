@@ -367,7 +367,7 @@ Notes: Scope boundaries written plainly for stakeholders.
 Pass Rate: 12/13 (92.3%)
 
 ✓ PASS 084. **If product brief exists:** Key insights incorporated into PRD
-Evidence: docs/product-brief-aethernet-2025-11-03.md:1; docs/PRD.md:9
+Evidence: docs/product-brief-louisianair-2025-11-03.md:1; docs/PRD.md:9
 Notes: PRD echoes product brief vision and metrics.
 
 ➖ N/A 085. **If domain brief exists:** Domain requirements reflected in FRs and stories

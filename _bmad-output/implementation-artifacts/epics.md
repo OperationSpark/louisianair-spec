@@ -1,4 +1,4 @@
-# aethernet - Epic Breakdown
+# louisianair - Epic Breakdown
 
 **Author:** OpSpark  
 **Date:** 2025-11-05  
@@ -9,7 +9,7 @@
 
 ## Overview
 
-This document provides the detailed epic breakdown for aethernet, expanding on the high-level epic list in the [PRD](./PRD.md).
+This document provides the detailed epic breakdown for louisianair, expanding on the high-level epic list in the [PRD](./PRD.md).
 
 Each epic includes:
 
@@ -36,7 +36,7 @@ The PRD clusters naturally into the following epics. Foundational work (Epic 1) 
 3. **Public Data Access & Partner APIs** – Expose actionable endpoints and developer tooling so residents, partners, and apprentices can query, analyze, and build on the dataset.
 4. **Community Dashboard Experience** – Give fenceline residents an accessible, plain-language dashboard that visualizes live and historical trends across neighborhoods.
 5. **Trust, Access Control & Compliance** – Enforce authentication, authorization, legal disclaimers, and transparency measures that uphold SB 503 requirements and data integrity.
-6. **Open Program & Workforce Enablement** – Package curriculum, documentation, and contribution pathways that let students, apprentices, and external partners replicate and extend Aethernet.
+6. **Open Program & Workforce Enablement** – Package curriculum, documentation, and contribution pathways that let students, apprentices, and external partners replicate and extend Louisianair.
 
 ---
 
@@ -220,7 +220,7 @@ So that the team spots failures before communities notice missing data.
 
 **Goal:** Deliver performant, well-documented endpoints and tooling that let residents, community partners, and apprentices access live and historical air quality data.
 
-**Value Proposition:** Converts raw readings into actionable insights and enables external innovation, fulfilling the transparency promise that differentiates Aethernet.
+**Value Proposition:** Converts raw readings into actionable insights and enables external innovation, fulfilling the transparency promise that differentiates Louisianair.
 
 ### Stories
 
@@ -482,7 +482,7 @@ So that the team responds consistently without institutional memory loss.
 
 ## Epic 6 – Open Program & Workforce Enablement
 
-**Goal:** Package curriculum, documentation, and contribution workflows that empower students, apprentices, and external partners to replicate and evolve Aethernet.
+**Goal:** Package curriculum, documentation, and contribution workflows that empower students, apprentices, and external partners to replicate and evolve Louisianair.
 
 **Value Proposition:** Extends impact beyond the pilot by building community capacity, supporting workforce development, and ensuring knowledge persists across cohorts.
 
@@ -507,7 +507,7 @@ So that students can build and deploy 5-10 sensors during the session.
 **Story E6.2: Publish Hardware & Deployment Playbook**
 
 As an external partner,  
-I want a repeatable playbook for assembling and deploying Aethernet sensors,  
+I want a repeatable playbook for assembling and deploying Louisianair sensors,  
 So that I can replicate the network without live support from Operation Spark.
 
 **Acceptance Criteria:**

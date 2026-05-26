@@ -262,7 +262,7 @@ Evidence: docs/architecture.md:27-73 provides component-specific initialization 
 Evidence: docs/architecture.md:79-90 shows Category, Decision, Version, Affects Epics, and Rationale columns.
 
 ✓ Project structure section shows complete source tree  
-Evidence: docs/architecture.md:94-124 describes both repositories and renders the directory tree for `aethernet-core` and `aethernet-edge-firmware`.
+Evidence: docs/architecture.md:94-124 describes both repositories and renders the directory tree for `louisianair-core` and `louisianair-edge-firmware`.
 
 ⚠ Implementation patterns section comprehensive  
 Evidence: docs/architecture.md:906-997 documents naming, error handling, logging, and cross-cutting standards but barely touches Python edge software or firmware specifics.  

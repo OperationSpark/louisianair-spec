@@ -1,7 +1,7 @@
 # Validation Report
 
-**Document:** /Users/opsparkowl/Documents/opspark/dev_shop/aethernet/docs/architecture.md
-**Checklist:** /Users/opsparkowl/Documents/opspark/dev_shop/aethernet/bmad/bmm/workflows/3-solutioning/architecture/checklist.md
+**Document:** /Users/opsparkowl/Documents/opspark/dev_shop/louisianair/docs/architecture.md
+**Checklist:** /Users/opsparkowl/Documents/opspark/dev_shop/louisianair/bmad/bmm/workflows/3-solutioning/architecture/checklist.md
 **Date:** 2025-12-29T14:19:42
 
 ## Summary

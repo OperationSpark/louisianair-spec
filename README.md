@@ -1,12 +1,12 @@
-# aethernet-spec
+# louisianair-spec
 
-Aethernet is an open source initiative that equips fenceline communities with low-cost, DIY air-quality monitors, a shared open database, and accessible dashboards—empowering residents to understand local air trends while apprentices and youth build real-world IoT and software skills.
+Louisianair is an open source initiative that equips fenceline communities with low-cost, DIY air-quality monitors, a shared open database, and accessible dashboards—empowering residents to understand local air trends while apprentices and youth build real-world IoT and software skills.
 
 Led by [Operation Spark](https://www.operationspark.org/) and [shift7](https://shift7.com/), the project focuses on environmental justice capacity-building in New Orleans neighborhoods.
 
 ---
 
-Over-arching documentation, decisions, and shared specs (including schema where relevant) for the Aethernet air-quality project.
+Over-arching documentation, decisions, and shared specs (including schema where relevant) for the Louisianair air-quality project.
 
 ## What lives here
 
@@ -17,8 +17,8 @@ Over-arching documentation, decisions, and shared specs (including schema where 
 
 ## Related repos
 
-- https://github.com/OperationSpark/aethernet
+- https://github.com/OperationSpark/louisianair
   - API server, database, and dashboard code
   - MQTT broker setup and configuration
-- https://github.com/OperationSpark/aethernet-firmware
+- https://github.com/OperationSpark/louisianair-firmware
   - Monitor device firmware

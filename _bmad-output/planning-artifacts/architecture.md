@@ -1,4 +1,4 @@
-# Aethernet Architecture
+# Louisianair Architecture
 
 **Author:** OpSpark
 **Date:** 2025-11-06
@@ -9,7 +9,7 @@
 
 ## Executive Summary
 
-Aethernet's architecture is designed as a distributed system with three primary components: IoT edge devices (Raspberry Pi + Arduino), a cloud-based REST API (Go), and a community-facing web experience (SvelteKit) that powers dashboards, admin panels, and device portals. The system prioritizes data integrity, operational simplicity, and accessibility for New Orleans fenceline communities while supporting workforce development through clear architectural patterns.
+Louisianair's architecture is designed as a distributed system with three primary components: IoT edge devices (Raspberry Pi + Arduino), a cloud-based REST API (Go), and a community-facing web experience (SvelteKit) that powers dashboards, admin panels, and device portals. The system prioritizes data integrity, operational simplicity, and accessibility for New Orleans fenceline communities while supporting workforce development through clear architectural patterns.
 
 **Key Architectural Decisions:**
 
@@ -31,16 +31,16 @@ This architecture supports scaling from 5-10 MVP sensors to 50+ sensors in Growt
 **API Service:**
 
 ```bash
-mkdir -p aethernet/api
-cd aethernet/api
-go mod init github.com/operationspark/aethernet/api
+mkdir -p louisianair/api
+cd louisianair/api
+go mod init github.com/operationspark/louisianair/api
 mkdir -p cmd/server internal/{handlers,middleware,models,db,types,config} testutil
 ```
 
 **Web Frontend:**
 
 ```bash
-cd aethernet
+cd louisianair
 npm create svelte@latest web
 # Select: SvelteKit demo app, TypeScript, Prettier, ESLint, Vitest
 cd web
@@ -51,8 +51,8 @@ npm install sveaflet leaflet
 **Edge Service:**
 
 ```bash
-mkdir -p aethernet-edge-firmware/edge-service/{src,tests,systemd}
-cd aethernet-edge-firmware/edge-service
+mkdir -p louisianair-edge-firmware/edge-service/{src,tests,systemd}
+cd louisianair-edge-firmware/edge-service
 python3 -m venv venv
 source venv/bin/activate
 pip install requests pytest pytest-cov
@@ -61,14 +61,14 @@ pip install requests pytest pytest-cov
 **Firmware (MCU/SoC):**
 
 ```bash
-mkdir -p aethernet-edge-firmware/firmware/reference-sensor
+mkdir -p louisianair-edge-firmware/firmware/reference-sensor
 # Use Arduino IDE, PlatformIO, or board-specific SDK to create sketches
 ```
 
 **Database:**
 
 ```bash
-mkdir -p aethernet/db/migrations
+mkdir -p louisianair/db/migrations
 # Migrations written in SQL, applied via migration tool or manually
 ```
 
@@ -95,12 +95,12 @@ mkdir -p aethernet/db/migrations
 
 ### Repository Layout: Multi-Repo Overview
 
-- `aethernet-core` – Web/API platform and shared documentation that product teams actively deploy.
-- `aethernet-edge-firmware` – Field devices (edge gateway runtimes plus interchangeable MCU/SoC firmware) packaged for tinkerers and community hardware experiments.
+- `louisianair-core` – Web/API platform and shared documentation that product teams actively deploy.
+- `louisianair-edge-firmware` – Field devices (edge gateway runtimes plus interchangeable MCU/SoC firmware) packaged for tinkerers and community hardware experiments.
 - **Split rationale:** Keeps CI/CD focused on production web/API services while allowing the hardware repo to version maker-ready releases (toolchains, flashing guides, adapter docs) at its own cadence without forcing DIY contributors to pull server code.
 
 ```
-aethernet-core/
+louisianair-core/
 ├── .github/workflows/         # CI for API/Web deployments
 ├── api/                       # Go REST API (unchanged layout)
 ├── web/                       # SvelteKit web app (dashboard, admin, portals)
@@ -110,7 +110,7 @@ aethernet-core/
 ├── README.md
 └── LICENSE
 
-aethernet-edge-firmware/
+louisianair-edge-firmware/
 ├── edge-service/              # Gateway runtime (Python or similar)
 │   ├── src/                   # Serial ingestion, local buffering, upload
 │   ├── tests/                 # Device-level test harnesses
@@ -129,7 +129,7 @@ aethernet-edge-firmware/
 
 ### Epic 1: Sensor Network Foundation
 
-**Components:** `aethernet-edge-firmware/edge-service`, `aethernet-edge-firmware/firmware`, `docs/hardware-playbook.md`
+**Components:** `louisianair-edge-firmware/edge-service`, `louisianair-edge-firmware/firmware`, `docs/hardware-playbook.md`
 
 **Architectural Support:**
 
@@ -629,7 +629,7 @@ CREATE TABLE tokens (
 
 ### REST Endpoints
 
-**Base URL:** `https://api.aethernet.app` (production), `http://localhost:8080` (development)
+**Base URL:** `https://api.louisianair.app` (production), `http://localhost:8080` (development)
 
 **Versioning:** `/v1/...` (URI-based, backwards compatible within major version)
 
@@ -818,7 +818,7 @@ CREATE TABLE tokens (
 
 1. `POST /v1/auth/login` validates email/password against the `users` table (bcrypt cost=12, per-hash salt).
 2. On success, the API creates a `sessions` row with `id`, `user_id`, `csrf_token`, `expires_at`, `roles`, and `team_ids` columns.
-3. Response sets an `HttpOnly`, `Secure`, `SameSite=Lax` cookie `aethernet_session=<opaque-token>` signed with HMAC-SHA256 using `SESSION_SIGNING_KEY`.
+3. Response sets an `HttpOnly`, `Secure`, `SameSite=Lax` cookie `louisianair_session=<opaque-token>` signed with HMAC-SHA256 using `SESSION_SIGNING_KEY`.
 4. SvelteKit loads the cookie in `hooks.server.ts`, calls `GET /v1/auth/session`, and injects the resolved user + team context into `locals` for downstream routes.
 5. Logout (manual or idle timeout) deletes the session row and instructs the browser to clear the cookie.
 
@@ -842,7 +842,7 @@ CREATE TABLE tokens (
 
 **SvelteKit Integration:**
 
-- `hooks.server.ts` reads `aethernet_session`, calls the session endpoint, and redirects to `/login` on invalid/expired tokens.
+- `hooks.server.ts` reads `louisianair_session`, calls the session endpoint, and redirects to `/login` on invalid/expired tokens.
 - Client-side fetch helpers automatically include CSRF tokens and attach the latest `request_id` for observability.
 
 **Future Hosted IdP Path:** Encapsulate auth logic behind an interface; when moving to Zitadel/Auth0, swap the credential issuance portion while retaining session + team enforcement code. A migration checklist lives in ADR-009.
@@ -898,7 +898,7 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains
 
 **CORS Configuration:**
 
-- Whitelist: `https://dashboard.aethernet.app`, `http://localhost:5173`
+- Whitelist: `https://dashboard.louisianair.app`, `http://localhost:5173`
 - Methods: GET, POST, OPTIONS
 - Headers: Authorization, Content-Type
 
@@ -948,13 +948,13 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains
 
 **API Service:**
 
-- App: `aethernet-api`
+- App: `louisianair-api`
 - VM: `shared-cpu-1x` (256MB)
 - Cost: ~$5-10/month
 
 **Web Service:**
 
-- App: `aethernet-web`
+- App: `louisianair-web`
 - VM: `shared-cpu-1x` (256MB)
 - Cost: ~$5-10/month
 
@@ -973,8 +973,8 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains
 
 **GitHub Actions:**
 
-- `aethernet-core`: API tests, web tests, auto-deploy on merge to `main`, path-based triggers, coverage gates (70% API, unit tests web app)
-- `aethernet-edge-firmware`: build + hardware regression checks on tagged releases; publish firmware binaries/toolchains without auto-deploy
+- `louisianair-core`: API tests, web tests, auto-deploy on merge to `main`, path-based triggers, coverage gates (70% API, unit tests web app)
+- `louisianair-edge-firmware`: build + hardware regression checks on tagged releases; publish firmware binaries/toolchains without auto-deploy
 
 ---
 
@@ -983,7 +983,7 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains
 **Local Development (`.env`):**
 
 ```bash
-DATABASE_URL=postgres://localhost/aethernet_dev
+DATABASE_URL=postgres://localhost/louisianair_dev
 API_KEY_SECRET=dev-secret-key
 LOG_LEVEL=debug
 ```
@@ -991,7 +991,7 @@ LOG_LEVEL=debug
 **Production (Fly.io Secrets):**
 
 ```bash
-flyctl secrets set -a aethernet-api \
+flyctl secrets set -a louisianair-api \
   DATABASE_URL=postgres://... \
   API_KEY_SECRET=<generated> \
   LOG_LEVEL=info
@@ -1231,7 +1231,7 @@ log.Info("reading ingested",
 **Status:** Accepted
 **Date:** 2025-11-06
 
-**Decision:** Move the edge gateway runtime and MCU/SoC firmware into a dedicated `aethernet-edge-firmware` repository while keeping the Go API, web experience, shared docs, and database migrations inside `aethernet-core`.
+**Decision:** Move the edge gateway runtime and MCU/SoC firmware into a dedicated `louisianair-edge-firmware` repository while keeping the Go API, web experience, shared docs, and database migrations inside `louisianair-core`.
 
 **Rationale:**
 
@@ -1241,9 +1241,9 @@ log.Info("reading ingested",
 
 **Implementation Notes:**
 
-- Create `aethernet-edge-firmware` via subtree split, preserving history for `edge/` and `arduino/` directories.
-- Update `aethernet-core` CI to drop hardware paths and reference the new repo in docs.
-- Publish GitHub Releases from `aethernet-edge-firmware` containing binaries/toolchains for workshops and maker kits.
+- Create `louisianair-edge-firmware` via subtree split, preserving history for `edge/` and `arduino/` directories.
+- Update `louisianair-core` CI to drop hardware paths and reference the new repo in docs.
+- Publish GitHub Releases from `louisianair-edge-firmware` containing binaries/toolchains for workshops and maker kits.
 
 ---
 
@@ -1252,7 +1252,7 @@ log.Info("reading ingested",
 **Status:** Draft
 **Date:** 2025-11-06
 
-**Decision:** Implement the initial user-authentication stack inside `aethernet-core` with stateful sessions (server-side tokens + signed cookies), password reset flows, and per-team access control. Model devices under teams/projects so users gain privileges by belonging to a team, and define an exit path to a hosted IdP (e.g., Zitadel/Auth0) once external tenant needs or compliance triggers arise.
+**Decision:** Implement the initial user-authentication stack inside `louisianair-core` with stateful sessions (server-side tokens + signed cookies), password reset flows, and per-team access control. Model devices under teams/projects so users gain privileges by belonging to a team, and define an exit path to a hosted IdP (e.g., Zitadel/Auth0) once external tenant needs or compliance triggers arise.
 
 **Rationale:**
 
@@ -1334,5 +1334,5 @@ log.Info("reading ingested",
 _This architecture document was created through collaborative decision facilitation with OpSpark._
 
 _Generated: 2025-11-06_
-_For: OpSpark - Aethernet Project_
+_For: OpSpark - Louisianair Project_
 _Ready for: Sprint Planning and Implementation_

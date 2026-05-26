@@ -10,7 +10,7 @@ This directory contains Architecture Decision Records (ADRs) for the project.
 | [ADR-0002](0002-language-tinygo.md)     | Programming Language - TinyGo            | Accepted |
 | [ADR-0003](0003-network-stack-lneto.md) | Network Stack - lneto                    | Accepted |
 | [ADR-0004](0004-protocol-mqtt.md)       | Communication Protocol - MQTT            | Accepted |
-| [ADR-0005](0005-mqtt-topic-structure.md) | MQTT Topic Structure for Aethernet Devices | Accepted |
+| [ADR-0005](0005-mqtt-topic-structure.md) | MQTT Topic Structure for Louisianair Devices | Accepted |
 | [ADR-0006](0006-sulfur-gas-sensor-afe-architecture.md) | Sulfur Gas Sensor and AFE Architecture | Proposed |
 | [ADR-0007](0007-openapi-spec-first-oapi-codegen.md) | OpenAPI Spec-First Code Generation with oapi-codegen | Proposed |
 | [ADR-0008](0008-frontend-static-first-sveltekit.md) | Frontend Stack - Static-First SvelteKit with SPA Auth Routes | Proposed |

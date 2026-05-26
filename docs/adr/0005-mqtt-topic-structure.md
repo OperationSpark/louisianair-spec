@@ -1,4 +1,4 @@
-# ADR-0005: MQTT Topic Structure for Aethernet Devices
+# ADR-0005: MQTT Topic Structure for Louisianair Devices
 
 ## Status
 
@@ -6,7 +6,7 @@ Accepted
 
 ## Context
 
-Aethernet devices publish sensor and status data over MQTT. Devices may vary in hardware and architecture (e.g. single MCUs like Pico W-class devices, MCU + companion systems, or future platforms). Devices may be owned by different users and connect through shared gateways or directly to a shared MQTT broker.
+Louisianair devices publish sensor and status data over MQTT. Devices may vary in hardware and architecture (e.g. single MCUs like Pico W-class devices, MCU + companion systems, or future platforms). Devices may be owned by different users and connect through shared gateways or directly to a shared MQTT broker.
 
 Devices can be deployed in arbitrary and changing physical locations. MQTT topics form a long-lived contract between device firmware, gateways, and backend services, so the topic structure must be stable, hardware-agnostic, and support multi-tenant isolation.
 
@@ -17,7 +17,7 @@ Use a simplified, tenant-centric, device-oriented MQTT topic hierarchy. Physical
 The canonical topic structure is:
 
 ```
-aethernet/<env>/<tenant>/<device_id>/<channel>
+louisianair/<env>/<tenant>/<device_id>/<channel>
 ```
 
 Where:
@@ -37,10 +37,10 @@ Devices publish the following channels:
 
 Example topics:
 
-- `aethernet/prod/t_8f3a/device-0017/telemetry`
-- `aethernet/prod/t_8f3a/device-0017/state`
-- `aethernet/prod/t_8f3a/device-0017/event/boot`
-- `aethernet/prod/t_8f3a/device-0017/meta`
+- `louisianair/prod/t_8f3a/device-0017/telemetry`
+- `louisianair/prod/t_8f3a/device-0017/state`
+- `louisianair/prod/t_8f3a/device-0017/event/boot`
+- `louisianair/prod/t_8f3a/device-0017/meta`
 
 This structure enables clean multi-tenant ACLs on shared brokers and prevents cross-tenant interference. Excluding physical location avoids topic churn when devices move or when location is unknown at publish time. Excluding device hardware type keeps the topic contract stable as implementations evolve.
 
