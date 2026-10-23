@@ -4,6 +4,8 @@
 
 Proposed
 
+**Implementation update (October 23, 2026):** Five Smart Citizen 8-channel ASB PCBs have been ordered for a Pico W / Alphasense development build. That board uses two ADS1115 ADCs over I²C, not the SPI/ADS1220 interface proposed below. See the [October hardware update](../funder-reports/oct-2026.md) for the illustrated node, BOM, rationale, and validation gates. This ADR remains a proposal; its ADC performance assumptions and 2.54 mm interconnect specification are not a wiring guide for the ASB build, whose J5 connection uses 2 mm pitch.
+
 ## Context
 
 The project requires outdoor air quality monitoring in urban and near-industrial environments (outside industrial fence lines), with a focus on sulfur gases.

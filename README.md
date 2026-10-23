@@ -15,6 +15,10 @@ Over-arching documentation, decisions, and shared specs (including schema where 
 - Cross-repo standards (data formats, API contracts, shared schema)
 - Program timelines, risks, and organizational context
 
+## Hardware updates
+
+- [October 2026: Electrochemical sensor interface boards](docs/funder-reports/oct-2026.md) — five Smart Citizen ASB PCBs ordered, node layout and BOM, development rationale, and requirements before field deployment.
+
 ## Related repos
 
 - https://github.com/OperationSpark/louisianair

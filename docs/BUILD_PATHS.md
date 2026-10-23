@@ -2,6 +2,8 @@
 
 This document outlines the development task paths for building sensor systems, showing shared infrastructure vs sensor-specific work.
 
+> **Hardware status (October 23, 2026):** The [current electrochemical build under evaluation](funder-reports/oct-2026.md) uses a Smart Citizen 8-channel ASB with two ADS1115 ADCs over I²C. The SPI-based electrochemical path below describes the earlier proposal, not the ordered board's interface or a validated field configuration.
+
 ## High-Level Workflow
 
 ```mermaid
